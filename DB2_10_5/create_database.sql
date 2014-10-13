@@ -17,6 +17,6 @@
 --------------------------------------------------------
 
 -- OPTIONAL:
--- create dedicated database for rsf
+-- create dedicated database for reacc
 
-CREATE DATABASE rsfdb USING CODESET UTF-8 TERRITORY US;
+CREATE DATABASE reaccdb USING CODESET UTF-8 TERRITORY US;

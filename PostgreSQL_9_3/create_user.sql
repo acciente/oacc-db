@@ -16,18 +16,18 @@
 -- permissions and limitations under the License.
 --------------------------------------------------------
 
--- create rsf user:
+-- create reacc user:
 
-CREATE USER rsfuser WITH PASSWORD 'rsfpwd' CONNECTION LIMIT -1;
+CREATE USER reaccuser WITH PASSWORD 'reaccpwd' CONNECTION LIMIT -1;
 
 -- if using a dedicated database - grant database privileges:
-GRANT CONNECT ON DATABASE rsfdb TO rsfuser;
+GRANT CONNECT ON DATABASE reaccdb TO reaccuser;
 
 -- grant schema privileges:
-GRANT USAGE ON SCHEMA rsf TO rsfuser;
+GRANT USAGE ON SCHEMA reacc TO reaccuser;
 
 -- grant sequence privileges:
-GRANT USAGE ON ALL SEQUENCES IN SCHEMA rsf TO rsfuser;
+GRANT USAGE ON ALL SEQUENCES IN SCHEMA reacc TO reaccuser;
 
 -- grant table privileges:
-GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA rsf TO rsfuser;
+GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA reacc TO reaccuser;

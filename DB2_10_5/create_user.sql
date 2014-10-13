@@ -16,34 +16,34 @@
 -- permissions and limitations under the License.
 --------------------------------------------------------
 
--- create rsf user:
+-- create reacc user:
 -- DB2 typically uses OS authentication, which means that in DB2
 -- a user has to be created externally to the database first!
--- this script only grants the user 'rsfuser' privileges to the rsf items
+-- this script only grants the user 'reaccuser' privileges to the reacc items
 
 -- if using a dedicated database - grant database privileges:
 
-GRANT CONNECT ON DATABASE TO USER rsfuser;
+GRANT CONNECT ON DATABASE TO USER reaccuser;
 
 -- grant sequence privileges:
 
-GRANT USAGE ON SEQUENCE RSF.RSF_ResourceClassID TO rsfuser;
-GRANT USAGE ON SEQUENCE RSF.RSF_PermissionID TO rsfuser;
-GRANT USAGE ON SEQUENCE RSF.RSF_DomainID TO rsfuser;
-GRANT USAGE ON SEQUENCE RSF.RSF_ResourceID TO rsfuser;
+GRANT USAGE ON SEQUENCE REACC.RAC_ResourceClassID TO reaccuser;
+GRANT USAGE ON SEQUENCE REACC.RAC_PermissionID TO reaccuser;
+GRANT USAGE ON SEQUENCE REACC.RAC_DomainID TO reaccuser;
+GRANT USAGE ON SEQUENCE REACC.RAC_ResourceID TO reaccuser;
 
 -- grant table privileges:
-GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE RSF.RSF_ResourceClass TO rsfuser;
-GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE RSF.RSF_ResourceClassPermission TO rsfuser;
-GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE RSF.RSF_Domain TO rsfuser;
-GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE RSF.RSF_Resource TO rsfuser;
-GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE RSF.RSF_Grant_DomPerm_Sys TO rsfuser;
-GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE RSF.RSF_Grant_DomCrPerm_Sys TO rsfuser;
-GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE RSF.RSF_Grant_DomCrPerm_PostCr_Sys TO rsfuser;
-GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE RSF.RSF_Grant_ResCrPerm_Sys TO rsfuser;
-GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE RSF.RSF_Grant_ResCrPerm_PostCr TO rsfuser;
-GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE RSF.RSF_Grant_ResCrPerm_PostCr_Sys TO rsfuser;
-GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE RSF.RSF_Grant_ResPerm TO rsfuser;
-GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE RSF.RSF_Grant_ResPerm_Sys TO rsfuser;
-GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE RSF.RSF_Grant_Global_ResPerm TO rsfuser;
-GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE RSF.RSF_Grant_Global_ResPerm_Sys TO rsfuser;
+GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE REACC.RAC_ResourceClass TO reaccuser;
+GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE REACC.RAC_ResourceClassPermission TO reaccuser;
+GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE REACC.RAC_Domain TO reaccuser;
+GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE REACC.RAC_Resource TO reaccuser;
+GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE REACC.RAC_Grant_DomPerm_Sys TO reaccuser;
+GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE REACC.RAC_Grant_DomCrPerm_Sys TO reaccuser;
+GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE REACC.RAC_Grant_DomCrPerm_PostCr_Sys TO reaccuser;
+GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE REACC.RAC_Grant_ResCrPerm_Sys TO reaccuser;
+GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE REACC.RAC_Grant_ResCrPerm_PostCr TO reaccuser;
+GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE REACC.RAC_Grant_ResCrPerm_PostCr_Sys TO reaccuser;
+GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE REACC.RAC_Grant_ResPerm TO reaccuser;
+GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE REACC.RAC_Grant_ResPerm_Sys TO reaccuser;
+GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE REACC.RAC_Grant_Global_ResPerm TO reaccuser;
+GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE REACC.RAC_Grant_Global_ResPerm_Sys TO reaccuser;

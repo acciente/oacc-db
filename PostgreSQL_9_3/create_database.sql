@@ -17,6 +17,6 @@
 --------------------------------------------------------
 
 -- OPTIONAL:
--- create dedicated database for rsf
+-- create dedicated database for reacc
 
-CREATE DATABASE rsfdb WITH ENCODING='UTF8' CONNECTION LIMIT=-1;
+CREATE DATABASE reaccdb WITH ENCODING='UTF8' CONNECTION LIMIT=-1;

@@ -17,10 +17,10 @@
 --------------------------------------------------------
 
 -- OPTIONAL:
--- create dedicated database for rsf
+-- create dedicated database for reacc
 
 USE master;
 GO
 
-CREATE DATABASE rsfdb;
+CREATE DATABASE reaccdb;
 GO

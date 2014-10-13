@@ -16,16 +16,16 @@
 -- permissions and limitations under the License.
 --------------------------------------------------------
 
--- create rsf user:
-CREATE LOGIN rsfuser WITH PASSWORD = 'rsfpwd';
+-- create reacc user:
+CREATE LOGIN reaccuser WITH PASSWORD = 'reaccpwd';
 
-USE rsfdb;
+USE reaccdb;
 
-CREATE USER rsfuser FOR LOGIN rsfuser;
+CREATE USER reaccuser FOR LOGIN reaccuser;
 
 -- if using a dedicated database - grant database privileges:
-GRANT CONNECT TO rsfuser;
+GRANT CONNECT TO reaccuser;
 
 -- grant schema privileges:
-GRANT SELECT, INSERT, UPDATE, DELETE  ON SCHEMA :: rsf TO rsfuser;
+GRANT SELECT, INSERT, UPDATE, DELETE  ON SCHEMA :: reacc TO reaccuser;
 GO 

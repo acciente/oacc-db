@@ -1,2 +1,2 @@
-Acciente Resource Security Framework
+Acciente REACC
 Copyright 2009-2014, Acciente LLC

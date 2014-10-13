@@ -16,8 +16,8 @@
 -- permissions and limitations under the License.
 --------------------------------------------------------
 
-CREATE USER rsf
-  IDENTIFIED BY rsf
+CREATE USER reacc
+  IDENTIFIED BY reacc
   DEFAULT TABLESPACE users
   TEMPORARY TABLESPACE temp
   PROFILE default

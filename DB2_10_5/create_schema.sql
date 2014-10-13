@@ -16,6 +16,6 @@
 -- permissions and limitations under the License.
 --------------------------------------------------------
 
--- run this while connected to the database that will host rsf:
+-- run this while connected to the database that will host reacc:
 
-CREATE SCHEMA rsf;
+CREATE SCHEMA reacc;

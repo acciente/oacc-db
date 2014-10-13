@@ -16,34 +16,34 @@
 -- permissions and limitations under the License.
 --------------------------------------------------------
 
--- create rsf user:
-CREATE USER rsfuser
-  IDENTIFIED BY rsfpwd
+-- create reacc user:
+CREATE USER reaccuser
+  IDENTIFIED BY reaccpwd
   DEFAULT TABLESPACE users
   TEMPORARY TABLESPACE temp
   PROFILE default
   QUOTA UNLIMITED ON users;
 
-GRANT CREATE SESSION TO rsfuser;
+GRANT CREATE SESSION TO reaccuser;
 
 -- grant sequence privileges:
-GRANT SELECT ON RSF.RSF_ResourceClassID TO rsfuser;
-GRANT SELECT ON RSF.RSF_PermissionID TO rsfuser;
-GRANT SELECT ON RSF.RSF_DomainID TO rsfuser;
-GRANT SELECT ON RSF.RSF_ResourceID TO rsfuser;
+GRANT SELECT ON REACC.RAC_ResourceClassID TO reaccuser;
+GRANT SELECT ON REACC.RAC_PermissionID TO reaccuser;
+GRANT SELECT ON REACC.RAC_DomainID TO reaccuser;
+GRANT SELECT ON REACC.RAC_ResourceID TO reaccuser;
 
 -- grant table privileges:
-GRANT SELECT, INSERT, UPDATE, DELETE ON RSF.RSF_ResourceClass TO rsfuser;
-GRANT SELECT, INSERT, UPDATE, DELETE ON RSF.RSF_ResourceClassPermission TO rsfuser;
-GRANT SELECT, INSERT, UPDATE, DELETE ON RSF.RSF_Domain TO rsfuser;
-GRANT SELECT, INSERT, UPDATE, DELETE ON RSF.RSF_Resource TO rsfuser;
-GRANT SELECT, INSERT, UPDATE, DELETE ON RSF.RSF_Grant_DomPerm_Sys TO rsfuser;
-GRANT SELECT, INSERT, UPDATE, DELETE ON RSF.RSF_Grant_DomCrPerm_Sys TO rsfuser;
-GRANT SELECT, INSERT, UPDATE, DELETE ON RSF.RSF_Grant_DomCrPerm_PostCr_Sys TO rsfuser;
-GRANT SELECT, INSERT, UPDATE, DELETE ON RSF.RSF_Grant_ResCrPerm_Sys TO rsfuser;
-GRANT SELECT, INSERT, UPDATE, DELETE ON RSF.RSF_Grant_ResCrPerm_PostCr TO rsfuser;
-GRANT SELECT, INSERT, UPDATE, DELETE ON RSF.RSF_Grant_ResCrPerm_PostCr_Sys TO rsfuser;
-GRANT SELECT, INSERT, UPDATE, DELETE ON RSF.RSF_Grant_ResPerm TO rsfuser;
-GRANT SELECT, INSERT, UPDATE, DELETE ON RSF.RSF_Grant_ResPerm_Sys TO rsfuser;
-GRANT SELECT, INSERT, UPDATE, DELETE ON RSF.RSF_Grant_Global_ResPerm TO rsfuser;
-GRANT SELECT, INSERT, UPDATE, DELETE ON RSF.RSF_Grant_Global_ResPerm_Sys TO rsfuser;
+GRANT SELECT, INSERT, UPDATE, DELETE ON REACC.RAC_ResourceClass TO reaccuser;
+GRANT SELECT, INSERT, UPDATE, DELETE ON REACC.RAC_ResourceClassPermission TO reaccuser;
+GRANT SELECT, INSERT, UPDATE, DELETE ON REACC.RAC_Domain TO reaccuser;
+GRANT SELECT, INSERT, UPDATE, DELETE ON REACC.RAC_Resource TO reaccuser;
+GRANT SELECT, INSERT, UPDATE, DELETE ON REACC.RAC_Grant_DomPerm_Sys TO reaccuser;
+GRANT SELECT, INSERT, UPDATE, DELETE ON REACC.RAC_Grant_DomCrPerm_Sys TO reaccuser;
+GRANT SELECT, INSERT, UPDATE, DELETE ON REACC.RAC_Grant_DomCrPerm_PostCr_Sys TO reaccuser;
+GRANT SELECT, INSERT, UPDATE, DELETE ON REACC.RAC_Grant_ResCrPerm_Sys TO reaccuser;
+GRANT SELECT, INSERT, UPDATE, DELETE ON REACC.RAC_Grant_ResCrPerm_PostCr TO reaccuser;
+GRANT SELECT, INSERT, UPDATE, DELETE ON REACC.RAC_Grant_ResCrPerm_PostCr_Sys TO reaccuser;
+GRANT SELECT, INSERT, UPDATE, DELETE ON REACC.RAC_Grant_ResPerm TO reaccuser;
+GRANT SELECT, INSERT, UPDATE, DELETE ON REACC.RAC_Grant_ResPerm_Sys TO reaccuser;
+GRANT SELECT, INSERT, UPDATE, DELETE ON REACC.RAC_Grant_Global_ResPerm TO reaccuser;
+GRANT SELECT, INSERT, UPDATE, DELETE ON REACC.RAC_Grant_Global_ResPerm_Sys TO reaccuser;
