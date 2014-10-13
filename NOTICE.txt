@@ -1,2 +1,2 @@
-Acciente REACC
+Acciente REACC (REsource ACcess Control) Framework
 Copyright 2009-2014, Acciente LLC
