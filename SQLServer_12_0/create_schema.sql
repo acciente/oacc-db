@@ -16,9 +16,9 @@
 -- permissions and limitations under the License.
 --------------------------------------------------------
 
--- run this while connected to the database that will host reacc:
+-- run this while connected to the database that will host oacc:
 
--- USE reaccdb;
+-- USE oaccdb;
 -- GO
 
-CREATE SCHEMA reacc;
+CREATE SCHEMA oacc;

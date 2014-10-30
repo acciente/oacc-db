@@ -16,18 +16,18 @@
 -- permissions and limitations under the License.
 --------------------------------------------------------
 
--- create reacc user:
+-- create oacc user:
 
-CREATE USER reaccuser WITH PASSWORD 'reaccpwd' CONNECTION LIMIT -1;
+CREATE USER oaccuser WITH PASSWORD 'oaccpwd' CONNECTION LIMIT -1;
 
 -- if using a dedicated database - grant database privileges:
-GRANT CONNECT ON DATABASE reaccdb TO reaccuser;
+GRANT CONNECT ON DATABASE oaccdb TO oaccuser;
 
 -- grant schema privileges:
-GRANT USAGE ON SCHEMA reacc TO reaccuser;
+GRANT USAGE ON SCHEMA oacc TO oaccuser;
 
 -- grant sequence privileges:
-GRANT USAGE ON ALL SEQUENCES IN SCHEMA reacc TO reaccuser;
+GRANT USAGE ON ALL SEQUENCES IN SCHEMA oacc TO oaccuser;
 
 -- grant table privileges:
-GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA reacc TO reaccuser;
+GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA oacc TO oaccuser;

@@ -17,10 +17,10 @@
 --------------------------------------------------------
 
 -- OPTIONAL:
--- create dedicated database for reacc
+-- create dedicated database for oacc
 
 -- please refere to the resource(s) below for help
 -- reference: http://docs.oracle.com/cd/E11882_01/server.112/e25494/create.htm#ADMIN12480
 
--- CREATE DATABASE reaccdb
+-- CREATE DATABASE oaccdb
 --   CHARACTER SET AL32UTF8;

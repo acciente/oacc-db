@@ -17,6 +17,6 @@
 --------------------------------------------------------
 
 -- OPTIONAL:
--- create dedicated database for reacc
+-- create dedicated database for oacc
 
-CREATE DATABASE reaccdb WITH ENCODING='UTF8' CONNECTION LIMIT=-1;
+CREATE DATABASE oaccdb WITH ENCODING='UTF8' CONNECTION LIMIT=-1;

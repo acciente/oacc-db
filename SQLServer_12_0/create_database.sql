@@ -17,10 +17,10 @@
 --------------------------------------------------------
 
 -- OPTIONAL:
--- create dedicated database for reacc
+-- create dedicated database for oacc
 
 USE master;
 GO
 
-CREATE DATABASE reaccdb;
+CREATE DATABASE oaccdb;
 GO

@@ -17,6 +17,6 @@
 --------------------------------------------------------
 
 -- OPTIONAL:
--- create dedicated database for reacc
+-- create dedicated database for oacc
 
-CREATE DATABASE reaccdb USING CODESET UTF-8 TERRITORY US;
+CREATE DATABASE oaccdb USING CODESET UTF-8 TERRITORY US;

@@ -16,16 +16,16 @@
 -- permissions and limitations under the License.
 --------------------------------------------------------
 
--- create reacc user:
-CREATE LOGIN reaccuser WITH PASSWORD = 'reaccpwd';
+-- create oacc user:
+CREATE LOGIN oaccuser WITH PASSWORD = 'oaccpwd';
 
-USE reaccdb;
+USE oaccdb;
 
-CREATE USER reaccuser FOR LOGIN reaccuser;
+CREATE USER oaccuser FOR LOGIN oaccuser;
 
 -- if using a dedicated database - grant database privileges:
-GRANT CONNECT TO reaccuser;
+GRANT CONNECT TO oaccuser;
 
 -- grant schema privileges:
-GRANT SELECT, INSERT, UPDATE, DELETE  ON SCHEMA :: reacc TO reaccuser;
+GRANT SELECT, INSERT, UPDATE, DELETE  ON SCHEMA :: oacc TO oaccuser;
 GO 
