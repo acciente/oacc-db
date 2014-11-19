@@ -17,13 +17,13 @@
 --------------------------------------------------------
 
 /* ---------------------------------------------------------------------- */
-/* Script generated with: DeZign for Databases vV7.0.1                    */
+/* Script generated with: DeZign for Databases V7.3.4                     */
 /* Target DBMS:           Oracle 11g                                      */
 /* Project file:          oacc-schema-design.dez                          */
 /* Project name:          OACC                                            */
 /* Author:                Adinath Raveendra Raj                           */
 /* Script type:           Database creation script                        */
-/* Created on:            2014-10-04 16:13                                */
+/* Created on:            2014-11-17 17:01                                */
 /* ---------------------------------------------------------------------- */
 
 
@@ -122,7 +122,6 @@ CREATE INDEX OACC.IX_D_DomainName ON OACC.OAC_Domain (DomainName);
 CREATE TABLE OACC.OAC_Resource (
     ResourceID NUMBER(19) CONSTRAINT NN_R_ResourceID NOT NULL,
     ResourceClassID NUMBER(19) CONSTRAINT NN_R_ResourceClassID NOT NULL,
-    Password VARCHAR2(128),
     DomainID NUMBER(19) CONSTRAINT NN_R_DomainID NOT NULL,
     CONSTRAINT PK_R PRIMARY KEY (ResourceID)
 );
@@ -340,6 +339,16 @@ CREATE INDEX OACC.IX_GrDCrPSys_AccessorResID ON OACC.OAC_Grant_DomCrPerm_Sys (Ac
 CREATE INDEX OACC.IX_GrDCrPSys_GrantorResID ON OACC.OAC_Grant_DomCrPerm_Sys (GrantorResourceID);
 
 /* ---------------------------------------------------------------------- */
+/* Add table "OAC_ResourcePassword"                                       */
+/* ---------------------------------------------------------------------- */
+
+CREATE TABLE OACC.OAC_ResourcePassword (
+    ResourceID NUMBER(19) CONSTRAINT NN_RP_ResourceID NOT NULL,
+    Password VARCHAR2(128) CONSTRAINT NN_RP_Password NOT NULL,
+    CONSTRAINT PK_RP PRIMARY KEY (ResourceID)
+);
+
+/* ---------------------------------------------------------------------- */
 /* Foreign key constraints                                                */
 /* ---------------------------------------------------------------------- */
 
@@ -456,3 +465,6 @@ ALTER TABLE OACC.OAC_Grant_DomCrPerm_Sys ADD CONSTRAINT GrDCrPSys_R_AccessorReso
 
 ALTER TABLE OACC.OAC_Grant_DomCrPerm_Sys ADD CONSTRAINT GrDCrPSys_R_GrantorResourceID 
     FOREIGN KEY (GrantorResourceID) REFERENCES OACC.OAC_Resource (ResourceID);
+
+ALTER TABLE OACC.OAC_ResourcePassword ADD CONSTRAINT RP_R_ResourceID 
+    FOREIGN KEY (ResourceID) REFERENCES OACC.OAC_Resource (ResourceID);

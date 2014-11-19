@@ -23,7 +23,7 @@
 /* Project name:          OACC                                            */
 /* Author:                Adinath Raveendra Raj                           */
 /* Script type:           Database creation script                        */
-/* Created on:            2014-10-06 13:38                                */
+/* Created on:            2014-11-17 17:13                                */
 /* ---------------------------------------------------------------------- */
 
 
@@ -94,7 +94,6 @@ CREATE INDEX IX_D_DomainName ON OACC.OAC_Domain (DomainName);
 CREATE TABLE OACC.OAC_Resource (
     ResourceID BIGINT  NOT NULL,
     ResourceClassID BIGINT  NOT NULL,
-    Password CHARACTER VARYING(128),
     DomainID BIGINT  NOT NULL,
     CONSTRAINT PK_R PRIMARY KEY (ResourceID)
 );
@@ -312,6 +311,16 @@ CREATE INDEX IX_GrDCrPSys_AccessorResID ON OACC.OAC_Grant_DomCrPerm_Sys (Accesso
 CREATE INDEX IX_GrDCrPSys_GrantorResID ON OACC.OAC_Grant_DomCrPerm_Sys (GrantorResourceID);
 
 /* ---------------------------------------------------------------------- */
+/* Add table "OAC_ResourcePassword"                                       */
+/* ---------------------------------------------------------------------- */
+
+CREATE TABLE OACC.OAC_ResourcePassword (
+    ResourceID BIGINT  NOT NULL,
+    Password CHARACTER VARYING(128)  NOT NULL,
+    CONSTRAINT PK_RP PRIMARY KEY (ResourceID)
+);
+
+/* ---------------------------------------------------------------------- */
 /* Foreign key constraints                                                */
 /* ---------------------------------------------------------------------- */
 
@@ -428,3 +437,6 @@ ALTER TABLE OACC.OAC_Grant_DomCrPerm_Sys ADD CONSTRAINT GrDCrPSys_R_AccessorReso
 
 ALTER TABLE OACC.OAC_Grant_DomCrPerm_Sys ADD CONSTRAINT GrDCrPSys_R_GrantorResourceID 
     FOREIGN KEY (GrantorResourceID) REFERENCES OACC.OAC_Resource (ResourceID);
+
+ALTER TABLE OACC.OAC_ResourcePassword ADD CONSTRAINT RP_R_ResourceID 
+    FOREIGN KEY (ResourceID) REFERENCES OACC.OAC_Resource (ResourceID);

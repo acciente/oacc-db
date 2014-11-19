@@ -17,13 +17,13 @@
 --------------------------------------------------------
 
 /* ---------------------------------------------------------------------- */
-/* Script generated with: DeZign for Databases vV7.0.1                    */
+/* Script generated with: DeZign for Databases V7.3.4                     */
 /* Target DBMS:           Oracle 11g                                      */
 /* Project file:          oacc-schema-design.dez                          */
 /* Project name:          OACC                                            */
 /* Author:                Adinath Raveendra Raj                           */
 /* Script type:           Database drop script                            */
-/* Created on:            2014-10-04 16:13                                */
+/* Created on:            2014-11-17 17:01                                */
 /* ---------------------------------------------------------------------- */
 
 
@@ -106,6 +106,24 @@ ALTER TABLE OACC.OAC_Grant_ResCrPerm_Sys DROP CONSTRAINT GrRCrPSys_R_GrantorReso
 ALTER TABLE OACC.OAC_Grant_DomCrPerm_Sys DROP CONSTRAINT GrDCrPSys_R_AccessorResourceID;
 
 ALTER TABLE OACC.OAC_Grant_DomCrPerm_Sys DROP CONSTRAINT GrDCrPSys_R_GrantorResourceID;
+
+ALTER TABLE OACC.OAC_ResourcePassword DROP CONSTRAINT RP_R_ResourceID;
+
+/* ---------------------------------------------------------------------- */
+/* Drop table "OAC_ResourcePassword"                                      */
+/* ---------------------------------------------------------------------- */
+
+/* Drop constraints */
+
+ALTER TABLE OACC.OAC_ResourcePassword DROP CONSTRAINT NN_RP_ResourceID;
+
+ALTER TABLE OACC.OAC_ResourcePassword DROP CONSTRAINT NN_RP_Password;
+
+ALTER TABLE OACC.OAC_ResourcePassword DROP CONSTRAINT PK_RP;
+
+/* Drop table */
+
+DROP TABLE OACC.OAC_ResourcePassword;
 
 /* ---------------------------------------------------------------------- */
 /* Drop table "OAC_Grant_DomCrPerm_Sys"                                   */

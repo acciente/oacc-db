@@ -20,10 +20,10 @@
 /* Script generated with: DeZign for Databases V7.3.4                     */
 /* Target DBMS:           PostgreSQL 9                                    */
 /* Project file:          oacc-schema-design.dez                          */
-/* Project name:          OACC                                           */
+/* Project name:          OACC                                            */
 /* Author:                Adinath Raveendra Raj                           */
 /* Script type:           Database drop script                            */
-/* Created on:            2014-10-06 13:38                                */
+/* Created on:            2014-11-17 17:13                                */
 /* ---------------------------------------------------------------------- */
 
 
@@ -106,6 +106,20 @@ ALTER TABLE OACC.OAC_Grant_ResCrPerm_Sys DROP CONSTRAINT GrRCrPSys_R_GrantorReso
 ALTER TABLE OACC.OAC_Grant_DomCrPerm_Sys DROP CONSTRAINT GrDCrPSys_R_AccessorResourceID;
 
 ALTER TABLE OACC.OAC_Grant_DomCrPerm_Sys DROP CONSTRAINT GrDCrPSys_R_GrantorResourceID;
+
+ALTER TABLE OACC.OAC_ResourcePassword DROP CONSTRAINT RP_R_ResourceID;
+
+/* ---------------------------------------------------------------------- */
+/* Drop table "OAC_ResourcePassword"                                      */
+/* ---------------------------------------------------------------------- */
+
+/* Drop constraints */
+
+ALTER TABLE OACC.OAC_ResourcePassword DROP CONSTRAINT PK_RP;
+
+/* Drop table */
+
+DROP TABLE OACC.OAC_ResourcePassword;
 
 /* ---------------------------------------------------------------------- */
 /* Drop table "OAC_Grant_DomCrPerm_Sys"                                   */

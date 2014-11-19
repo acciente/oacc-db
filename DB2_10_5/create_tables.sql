@@ -16,14 +16,14 @@
 -- permissions and limitations under the License.
 --------------------------------------------------------
 
--- ----------------------------------------------------------------------
+-- ---------------------------------------------------------------------- 
 -- Script generated with: DeZign for Databases V7.3.4                     
 -- Target DBMS:           DB2 Universal DB 9                              
--- Project file:          oacc-schema-design.dez                           
--- Project name:          OACC                                             
+-- Project file:          oacc-schema-design.dez                          
+-- Project name:          OACC                                            
 -- Author:                Adinath Raveendra Raj                           
 -- Script type:           Database creation script                        
--- Created on:            2014-10-06 12:18                                
+-- Created on:            2014-11-17 16:58                                
 -- ---------------------------------------------------------------------- 
 
 
@@ -115,7 +115,6 @@ CREATE INDEX OACC.IX_D_DomainName ON OACC.OAC_Domain (DomainName);
 CREATE TABLE OACC.OAC_Resource (
     ResourceID BIGINT NOT NULL,
     ResourceClassID BIGINT NOT NULL,
-    Password VARCHAR(128),
     DomainID BIGINT NOT NULL,
     CONSTRAINT PK_R PRIMARY KEY (ResourceID)
 );
@@ -333,6 +332,16 @@ CREATE INDEX OACC.IX_GrDCrPSys_AccessorResID ON OACC.OAC_Grant_DomCrPerm_Sys (Ac
 CREATE INDEX OACC.IX_GrDCrPSys_GrantorResID ON OACC.OAC_Grant_DomCrPerm_Sys (GrantorResourceID);
 
 -- ---------------------------------------------------------------------- 
+-- Add table "OAC_ResourcePassword"                                       
+-- ---------------------------------------------------------------------- 
+
+CREATE TABLE OACC.OAC_ResourcePassword (
+    ResourceID BIGINT NOT NULL,
+    Password VARCHAR(128) NOT NULL,
+    CONSTRAINT PK_RP PRIMARY KEY (ResourceID)
+);
+
+-- ---------------------------------------------------------------------- 
 -- Foreign key constraints                                                
 -- ---------------------------------------------------------------------- 
 
@@ -449,3 +458,6 @@ ALTER TABLE OACC.OAC_Grant_DomCrPerm_Sys ADD CONSTRAINT GrDCrPSys_R_AccessorReso
 
 ALTER TABLE OACC.OAC_Grant_DomCrPerm_Sys ADD CONSTRAINT GrDCrPSys_R_GrantorResourceID 
     FOREIGN KEY (GrantorResourceID) REFERENCES OACC.OAC_Resource (ResourceID);
+
+ALTER TABLE OACC.OAC_ResourcePassword ADD CONSTRAINT RP_R_ResourceID 
+    FOREIGN KEY (ResourceID) REFERENCES OACC.OAC_Resource (ResourceID);

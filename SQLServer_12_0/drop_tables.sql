@@ -23,7 +23,7 @@
 /* Project name:          OACC                                            */
 /* Author:                Adinath Raveendra Raj                           */
 /* Script type:           Database drop script                            */
-/* Created on:            2014-10-06 13:45                                */
+/* Created on:            2014-11-17 17:17                                */
 /* ---------------------------------------------------------------------- */
 
 
@@ -180,6 +180,26 @@ GO
 
 
 ALTER TABLE [OACC].[OAC_Grant_DomCrPerm_Sys] DROP CONSTRAINT [GrDCrPSys_R_GrantorResourceID]
+GO
+
+
+ALTER TABLE [OACC].[OAC_ResourcePassword] DROP CONSTRAINT [RP_R_ResourceID]
+GO
+
+
+/* ---------------------------------------------------------------------- */
+/* Drop table "OAC_ResourcePassword"                                      */
+/* ---------------------------------------------------------------------- */
+
+/* Drop constraints */
+
+ALTER TABLE [OACC].[OAC_ResourcePassword] DROP CONSTRAINT [PK_RP]
+GO
+
+
+/* Drop table */
+
+DROP TABLE [OACC].[OAC_ResourcePassword]
 GO
 
 

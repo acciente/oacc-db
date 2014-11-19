@@ -23,7 +23,7 @@
 /* Project name:          OACC                                            */
 /* Author:                Adinath Raveendra Raj                           */
 /* Script type:           Database creation script                        */
-/* Created on:            2014-10-06 13:45                                */
+/* Created on:            2014-11-17 17:17                                */
 /* ---------------------------------------------------------------------- */
 
 
@@ -139,7 +139,6 @@ GO
 CREATE TABLE [OACC].[OAC_Resource] (
     [ResourceID] BIGINT NOT NULL,
     [ResourceClassID] BIGINT NOT NULL,
-    [Password] VARCHAR(128),
     [DomainID] BIGINT NOT NULL,
     CONSTRAINT [PK_R] PRIMARY KEY ([ResourceID])
 )
@@ -453,6 +452,18 @@ GO
 
 
 /* ---------------------------------------------------------------------- */
+/* Add table "OAC_ResourcePassword"                                       */
+/* ---------------------------------------------------------------------- */
+
+CREATE TABLE [OACC].[OAC_ResourcePassword] (
+    [ResourceID] BIGINT NOT NULL,
+    [Password] VARCHAR(128) NOT NULL,
+    CONSTRAINT [PK_RP] PRIMARY KEY ([ResourceID])
+)
+GO
+
+
+/* ---------------------------------------------------------------------- */
 /* Foreign key constraints                                                */
 /* ---------------------------------------------------------------------- */
 
@@ -643,5 +654,10 @@ GO
 
 ALTER TABLE [OACC].[OAC_Grant_DomCrPerm_Sys] ADD CONSTRAINT [GrDCrPSys_R_GrantorResourceID] 
     FOREIGN KEY ([GrantorResourceID]) REFERENCES [OACC].[OAC_Resource] ([ResourceID])
+GO
+
+
+ALTER TABLE [OACC].[OAC_ResourcePassword] ADD CONSTRAINT [RP_R_ResourceID] 
+    FOREIGN KEY ([ResourceID]) REFERENCES [OACC].[OAC_Resource] ([ResourceID])
 GO
 
