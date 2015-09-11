@@ -12,6 +12,9 @@ The currently supported database systems are:
 - Microsoft SQL Server 12.0 (2014)
 - Oracle 11g R2
 - PostgreSQL 9.3
+- HSQLDB 2.3
+- MySQL 5.6 / MariaDB 10.0
+- SQLite 3.8
 
 ## Database Setup Scripts
 The database setup scripts consist of four different files that should be executed in the following sequence:
@@ -20,11 +23,12 @@ The database setup scripts consist of four different files that should be execut
     + creates a dedicated database for OACC
     + typically run as a DBMS admin user
     + _running this script is optional_ - you could simply create the OACC schema and/or tables within your project's current database
-    + _if you are using Oracle, please refer to the RDBMS-specific notes, below_
+    + _if you are using Oracle, HSQLDB or SQLite, please refer to the RDBMS-specific notes, below_
 
 1. **create_schema.sql**
     + creates a database schema to house OACC-specific tables
     + run this script while connected to the database you set up with the `create_database.sql` script above
+    + _if you are using MySQL/MariaDB or SQLite, please refer to the RDBMS-specific notes, below_
 
 1. **create_tables.sql**
     + creates OACC sequences, tables and constraints
@@ -35,11 +39,14 @@ The database setup scripts consist of four different files that should be execut
     + creates a database user for OACC - _**Note:**_ update this script to set the OACC database user's password!
     + grants privileges to connect to the OACC-database you set up with the `create_database.sql` script above
     + grants privileges to the OACC sequences and tables
-    + _if you are using IBM DB2, please refer to the RDBMS-specific notes, below_
+    + _if you are using IBM DB2 or SQLite, please refer to the RDBMS-specific notes, below_
 
 You are free to modify the provided scripts to suit your project's needs, as far as the database, schema, user and password are concerned - you'll get a chance to apply your customizations to the OACC configuration separately, after the database setup is complete.
 
 There is a fifth script, `drop_tables.sql`, to facilitate removal of OACC constraints, tables and sequences, which you would only run when uninstalling OACC from your project.
+
+These database scripts have been tested against the specified database system and version that their folder is named after. Often they can be run against _other (especially higher) versions_ of the _same_ database, as well, without any issues - but please keep in mind that we didn't actually verify this.  
+Running a database setup script against a completely _different database system_ might be possible between certain databases, but similarly to different SQL dialects, there could be small differences in DDL syntax that would cause an issue. 
 
 ### IBM DB2 Database Setup Notes
 - create_user.sql
@@ -51,6 +58,24 @@ There is a fifth script, `drop_tables.sql`, to facilitate removal of OACC constr
 ### Oracle Database Setup Notes
 - create_database.sql
     + The Oracle version of this script is provided for completeness' sake, but doesn't actually do anything, because schema/table creation in Oracle sufficiently handles the namespacing of the OACC database objects
+
+### HSQLDB Database Setup Notes
+- create_database.sql
+    + The HSQLDB version of this script is provided for completeness' sake, but doesn't actually do anything, because database creation in HSQLDB is implicit in starting an HSQLDB server or connecting to one
+
+### MySQL/MariaDB Database Setup Notes
+- create_schema.sql
+    + The MySQL/MariaDB version of this script is provided for completeness' sake, but doesn't actually do anything, because database creation in MySQL/MariaDB is a synonym for schema creation and sufficiently handles the namespacing of the OACC database objects
+    + Note that you'll need to pass `null` as the value for the `schemaName` parameter when acquiring an `AccessControlContext` from `SQLAccessControlContextFactory` in your application
+
+### SQLite Database Setup Notes
+- create_database.sql
+    + The SQLite version of this script is provided for completeness' sake, but doesn't actually do anything, because database creation in SQLite is implicit during SQLite instantiation if the specifed database does not already exist
+- create_schema.sql
+    + The SQLite version of this script is provided for completeness' sake, but doesn't actually do anything, because the database name is the only supported way to namespace tables in SQLite
+    + Note that you'll need to pass `null` as the value for the `schemaName` parameter when acquiring an `AccessControlContext` from `SQLAccessControlContextFactory` in your application
+- create_user.sql
+    + The SQLite version of this script is provided for completeness' sake, but doesn't actually do anything, because SQLite does not support user/account creation or granting authorization to database objects
 
 ## License
 OACC and the oacc-db setup scripts are open source software released under the commercial friendly [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
