@@ -23,7 +23,7 @@
 # Project name:          OACC                                            #
 # Author:                Adinath Raveendra Raj                           #
 # Script type:           Database creation script                        #
-# Created on:            2015-08-25 14:24                                #
+# Created on:            2015-09-10 16:34                                #
 # ---------------------------------------------------------------------- #
 
 
@@ -67,7 +67,7 @@ CREATE INDEX `IX_RCP_ResClassID_PermName` ON `OACCDB`.`OAC_ResourceClassPermissi
 CREATE TABLE `OACCDB`.`OAC_Domain` (
     `DomainID` BIGINT NOT NULL AUTO_INCREMENT,
     `DomainName` VARCHAR(64) NOT NULL,
-    `ParentDomainID` BIGINT UNSIGNED,
+    `ParentDomainID` BIGINT,
     CONSTRAINT `PK_D` PRIMARY KEY (`DomainID`)
 );
 
