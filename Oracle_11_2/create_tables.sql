@@ -23,7 +23,7 @@
 /* Project name:          OACC                                            */
 /* Author:                Adinath Raveendra Raj                           */
 /* Script type:           Database creation script                        */
-/* Created on:            2014-11-17 17:01                                */
+/* Created on:            2015-11-02 18:16                                */
 /* ---------------------------------------------------------------------- */
 
 
@@ -349,6 +349,19 @@ CREATE TABLE OACC.OAC_ResourcePassword (
 );
 
 /* ---------------------------------------------------------------------- */
+/* Add table "OAC_ResourceExternalID"                                     */
+/* ---------------------------------------------------------------------- */
+
+CREATE TABLE OACC.OAC_ResourceExternalID (
+    ResourceID NUMBER(19) CONSTRAINT NN_RE_ResourceID NOT NULL,
+    ExternalID VARCHAR2(255) CONSTRAINT NN_RE_ExternalID NOT NULL,
+    CONSTRAINT PK_RE PRIMARY KEY (ResourceID),
+    CONSTRAINT UX_ExternalID UNIQUE (ExternalID)
+);
+
+CREATE INDEX OACC.IX_RE_ExternalID ON OACC.OAC_ResourceExternalID (ExternalID);
+
+/* ---------------------------------------------------------------------- */
 /* Foreign key constraints                                                */
 /* ---------------------------------------------------------------------- */
 
@@ -467,4 +480,7 @@ ALTER TABLE OACC.OAC_Grant_DomCrPerm_Sys ADD CONSTRAINT GrDCrPSys_R_GrantorResou
     FOREIGN KEY (GrantorResourceID) REFERENCES OACC.OAC_Resource (ResourceID);
 
 ALTER TABLE OACC.OAC_ResourcePassword ADD CONSTRAINT RP_R_ResourceID 
+    FOREIGN KEY (ResourceID) REFERENCES OACC.OAC_Resource (ResourceID);
+
+ALTER TABLE OACC.OAC_ResourceExternalID ADD CONSTRAINT RE_R_ResourceID 
     FOREIGN KEY (ResourceID) REFERENCES OACC.OAC_Resource (ResourceID);

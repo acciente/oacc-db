@@ -1,5 +1,5 @@
 --------------------------------------------------------
--- Copyright 2009-2014, Acciente LLC
+-- Copyright 2009-2015, Acciente LLC
 --
 -- Acciente LLC licenses this file to you under the
 -- Apache License, Version 2.0 (the "License"); you
@@ -23,7 +23,7 @@
 /* Project name:          OACC                                            */
 /* Author:                Adinath Raveendra Raj                           */
 /* Script type:           Database drop script                            */
-/* Created on:            2014-11-17 17:13                                */
+/* Created on:            2015-10-22 15:12                                */
 /* ---------------------------------------------------------------------- */
 
 
@@ -108,6 +108,22 @@ ALTER TABLE OACC.OAC_Grant_DomCrPerm_Sys DROP CONSTRAINT GrDCrPSys_R_AccessorRes
 ALTER TABLE OACC.OAC_Grant_DomCrPerm_Sys DROP CONSTRAINT GrDCrPSys_R_GrantorResourceID;
 
 ALTER TABLE OACC.OAC_ResourcePassword DROP CONSTRAINT RP_R_ResourceID;
+
+ALTER TABLE OACC.OAC_ResourceExternalID DROP CONSTRAINT RE_R_ResourceID;
+
+/* ---------------------------------------------------------------------- */
+/* Drop table "OAC_ResourceExternalID"                                    */
+/* ---------------------------------------------------------------------- */
+
+/* Drop constraints */
+
+ALTER TABLE OACC.OAC_ResourceExternalID DROP CONSTRAINT PK_RE;
+
+ALTER TABLE OACC.OAC_ResourceExternalID DROP CONSTRAINT UX_ExternalID;
+
+/* Drop table */
+
+DROP TABLE OACC.OAC_ResourceExternalID;
 
 /* ---------------------------------------------------------------------- */
 /* Drop table "OAC_ResourcePassword"                                      */

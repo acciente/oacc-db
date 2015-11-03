@@ -23,7 +23,7 @@
 # Project name:          OACC                                            #
 # Author:                Adinath Raveendra Raj                           #
 # Script type:           Database creation script                        #
-# Created on:            2015-09-10 16:34                                #
+# Created on:            2015-11-02 16:25                                #
 # ---------------------------------------------------------------------- #
 
 
@@ -309,6 +309,19 @@ CREATE TABLE `OACCDB`.`OAC_ResourcePassword` (
 );
 
 # ---------------------------------------------------------------------- #
+# Add table "OACCDB.OAC_ResourceExternalID"                              #
+# ---------------------------------------------------------------------- #
+
+CREATE TABLE `OACCDB`.`OAC_ResourceExternalID` (
+    `ResourceID` BIGINT NOT NULL,
+    `ExternalID` VARCHAR(255) NOT NULL,
+    CONSTRAINT `PK_RE` PRIMARY KEY (`ResourceID`),
+    CONSTRAINT `UX_ExternalID` UNIQUE (`ExternalID`)
+);
+
+CREATE INDEX `IX_RE_ExternalID` ON `OACCDB`.`OAC_ResourceExternalID` (`ExternalID`);
+
+# ---------------------------------------------------------------------- #
 # Foreign key constraints                                                #
 # ---------------------------------------------------------------------- #
 
@@ -427,4 +440,7 @@ ALTER TABLE `OACCDB`.`OAC_Grant_DomCrPerm_Sys` ADD CONSTRAINT `GrDCrPSys_R_Grant
     FOREIGN KEY (`GrantorResourceID`) REFERENCES `OACCDB`.`OAC_Resource` (`ResourceID`);
 
 ALTER TABLE `OACCDB`.`OAC_ResourcePassword` ADD CONSTRAINT `RP_R_ResourceID` 
+    FOREIGN KEY (`ResourceID`) REFERENCES `OACCDB`.`OAC_Resource` (`ResourceID`);
+
+ALTER TABLE `OACCDB`.`OAC_ResourceExternalID` ADD CONSTRAINT `RE_R_ResourceID` 
     FOREIGN KEY (`ResourceID`) REFERENCES `OACCDB`.`OAC_Resource` (`ResourceID`);

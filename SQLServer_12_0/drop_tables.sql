@@ -23,7 +23,7 @@
 /* Project name:          OACC                                            */
 /* Author:                Adinath Raveendra Raj                           */
 /* Script type:           Database drop script                            */
-/* Created on:            2014-11-17 17:17                                */
+/* Created on:            2015-11-02 17:53                                */
 /* ---------------------------------------------------------------------- */
 
 
@@ -184,6 +184,30 @@ GO
 
 
 ALTER TABLE [OACC].[OAC_ResourcePassword] DROP CONSTRAINT [RP_R_ResourceID]
+GO
+
+
+ALTER TABLE [OACC].[OAC_ResourceExternalID] DROP CONSTRAINT [RE_R_ResourceID]
+GO
+
+
+/* ---------------------------------------------------------------------- */
+/* Drop table "OAC_ResourceExternalID"                                    */
+/* ---------------------------------------------------------------------- */
+
+/* Drop constraints */
+
+ALTER TABLE [OACC].[OAC_ResourceExternalID] DROP CONSTRAINT [PK_RE]
+GO
+
+
+ALTER TABLE [OACC].[OAC_ResourceExternalID] DROP CONSTRAINT [UX_ExternalID]
+GO
+
+
+/* Drop table */
+
+DROP TABLE [OACC].[OAC_ResourceExternalID]
 GO
 
 

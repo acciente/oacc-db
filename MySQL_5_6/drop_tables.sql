@@ -23,7 +23,7 @@
 # Project name:          OACC                                            #
 # Author:                Adinath Raveendra Raj                           #
 # Script type:           Database drop script                            #
-# Created on:            2015-09-10 16:34                                #
+# Created on:            2015-11-02 16:25                                #
 # ---------------------------------------------------------------------- #
 
 
@@ -108,6 +108,22 @@ ALTER TABLE `OACCDB`.`OAC_Grant_DomCrPerm_Sys` DROP FOREIGN KEY `GrDCrPSys_R_Acc
 ALTER TABLE `OACCDB`.`OAC_Grant_DomCrPerm_Sys` DROP FOREIGN KEY `GrDCrPSys_R_GrantorResourceID`;
 
 ALTER TABLE `OACCDB`.`OAC_ResourcePassword` DROP FOREIGN KEY `RP_R_ResourceID`;
+
+ALTER TABLE `OACCDB`.`OAC_ResourceExternalID` DROP FOREIGN KEY `RE_R_ResourceID`;
+
+# ---------------------------------------------------------------------- #
+# Drop table "OACCDB.OAC_ResourceExternalID"                             #
+# ---------------------------------------------------------------------- #
+
+# Drop constraints #
+
+ALTER TABLE `OACCDB`.`OAC_ResourceExternalID` DROP PRIMARY KEY;
+
+DROP INDEX `UX_ExternalID` ON `OACCDB`.`OAC_ResourceExternalID`;
+
+# Drop table #
+
+DROP TABLE `OACCDB`.`OAC_ResourceExternalID`;
 
 # ---------------------------------------------------------------------- #
 # Drop table "OACCDB.OAC_ResourcePassword"                               #
@@ -245,6 +261,8 @@ DROP TABLE `OACCDB`.`OAC_Grant_ResPerm`;
 # Drop table "OACCDB.OAC_Resource"                                       #
 # ---------------------------------------------------------------------- #
 
+# Drop constraints #
+
 # Drop table #
 
 DROP TABLE `OACCDB`.`OAC_Resource`;
@@ -252,6 +270,8 @@ DROP TABLE `OACCDB`.`OAC_Resource`;
 # ---------------------------------------------------------------------- #
 # Drop table "OACCDB.OAC_Domain"                                         #
 # ---------------------------------------------------------------------- #
+
+# Drop constraints #
 
 # Drop table #
 
@@ -261,6 +281,8 @@ DROP TABLE `OACCDB`.`OAC_Domain`;
 # Drop table "OACCDB.OAC_ResourceClassPermission"                        #
 # ---------------------------------------------------------------------- #
 
+# Drop constraints #
+
 # Drop table #
 
 DROP TABLE `OACCDB`.`OAC_ResourceClassPermission`;
@@ -268,6 +290,8 @@ DROP TABLE `OACCDB`.`OAC_ResourceClassPermission`;
 # ---------------------------------------------------------------------- #
 # Drop table "OACCDB.OAC_ResourceClass"                                  #
 # ---------------------------------------------------------------------- #
+
+# Drop constraints #
 
 # Drop table #
 
