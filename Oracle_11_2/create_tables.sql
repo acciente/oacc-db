@@ -359,8 +359,6 @@ CREATE TABLE OACC.OAC_ResourceExternalID (
     CONSTRAINT UX_ExternalID UNIQUE (ExternalID)
 );
 
-CREATE INDEX OACC.IX_RE_ExternalID ON OACC.OAC_ResourceExternalID (ExternalID);
-
 /* ---------------------------------------------------------------------- */
 /* Foreign key constraints                                                */
 /* ---------------------------------------------------------------------- */
