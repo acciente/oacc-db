@@ -16,7 +16,7 @@
 -- permissions and limitations under the License.
 --------------------------------------------------------
 
-CREATE USER oacc
+CREATE USER OACC
   IDENTIFIED BY oacc
   DEFAULT TABLESPACE users
   TEMPORARY TABLESPACE temp

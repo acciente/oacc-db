@@ -27,5 +27,5 @@ CREATE USER oaccuser FOR LOGIN oaccuser;
 GRANT CONNECT TO oaccuser;
 
 -- grant schema privileges:
-GRANT SELECT, INSERT, UPDATE, DELETE  ON SCHEMA :: oacc TO oaccuser;
+GRANT SELECT, INSERT, UPDATE, DELETE  ON SCHEMA :: OACC TO oaccuser;
 GO 

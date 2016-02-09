@@ -16,5 +16,5 @@
 #  permissions and limitations under the License.        #
 # ------------------------------------------------------ #
 
-CREATE DATABASE oaccdb
+CREATE DATABASE `OACCDB`
   CHARACTER SET utf8;

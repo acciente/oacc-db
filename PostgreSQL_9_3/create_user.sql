@@ -24,10 +24,10 @@ CREATE USER oaccuser WITH PASSWORD 'oaccpwd' CONNECTION LIMIT -1;
 GRANT CONNECT ON DATABASE oaccdb TO oaccuser;
 
 -- grant schema privileges:
-GRANT USAGE ON SCHEMA oacc TO oaccuser;
+GRANT USAGE ON SCHEMA OACC TO oaccuser;
 
 -- grant sequence privileges:
-GRANT USAGE ON ALL SEQUENCES IN SCHEMA oacc TO oaccuser;
+GRANT USAGE ON ALL SEQUENCES IN SCHEMA OACC TO oaccuser;
 
 -- grant table privileges:
-GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA oacc TO oaccuser;
+GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA OACC TO oaccuser;
