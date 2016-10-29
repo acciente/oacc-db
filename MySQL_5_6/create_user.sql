@@ -26,7 +26,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON OACCDB.OAC_ResourceClassPermission TO `o
 GRANT SELECT, INSERT, UPDATE, DELETE ON OACCDB.OAC_Domain TO `oaccuser`@`localhost`;
 GRANT SELECT, INSERT, UPDATE, DELETE ON OACCDB.OAC_Resource TO `oaccuser`@`localhost`;
 GRANT SELECT, INSERT, UPDATE, DELETE ON OACCDB.OAC_ResourcePassword TO `oaccuser`@`localhost`;
-GRANT SELECT, INSERT, UPDATE, DELETE ON OACCDB.OAC_ResourceExternalId TO `oaccuser`@`localhost`;
+GRANT SELECT, INSERT, UPDATE, DELETE ON OACCDB.OAC_ResourceExternalID TO `oaccuser`@`localhost`;
 GRANT SELECT, INSERT, UPDATE, DELETE ON OACCDB.OAC_Grant_DomPerm_Sys TO `oaccuser`@`localhost`;
 GRANT SELECT, INSERT, UPDATE, DELETE ON OACCDB.OAC_Grant_DomCrPerm_Sys TO `oaccuser`@`localhost`;
 GRANT SELECT, INSERT, UPDATE, DELETE ON OACCDB.OAC_Grant_DomCrPerm_PostCr_Sys TO `oaccuser`@`localhost`;
