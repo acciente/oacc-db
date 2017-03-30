@@ -109,21 +109,21 @@ ALTER TABLE `OACCDB`.`OAC_Grant_DomCrPerm_Sys` DROP FOREIGN KEY `GrDCrPSys_R_Gra
 
 ALTER TABLE `OACCDB`.`OAC_ResourcePassword` DROP FOREIGN KEY `RP_R_ResourceID`;
 
-ALTER TABLE `OACCDB`.`OAC_ResourceExternalID` DROP FOREIGN KEY `RE_R_ResourceID`;
+ALTER TABLE `OACCDB`.`OAC_ResourceExternalId` DROP FOREIGN KEY `RE_R_ResourceID`;
 
 # ---------------------------------------------------------------------- #
-# Drop table "OACCDB.OAC_ResourceExternalID"                             #
+# Drop table "OACCDB.OAC_ResourceExternalId"                             #
 # ---------------------------------------------------------------------- #
 
 # Drop constraints #
 
-ALTER TABLE `OACCDB`.`OAC_ResourceExternalID` DROP PRIMARY KEY;
+ALTER TABLE `OACCDB`.`OAC_ResourceExternalId` DROP PRIMARY KEY;
 
-DROP INDEX `UX_ExternalID` ON `OACCDB`.`OAC_ResourceExternalID`;
+DROP INDEX `UX_ExternalID` ON `OACCDB`.`OAC_ResourceExternalId`;
 
 # Drop table #
 
-DROP TABLE `OACCDB`.`OAC_ResourceExternalID`;
+DROP TABLE `OACCDB`.`OAC_ResourceExternalId`;
 
 # ---------------------------------------------------------------------- #
 # Drop table "OACCDB.OAC_ResourcePassword"                               #
