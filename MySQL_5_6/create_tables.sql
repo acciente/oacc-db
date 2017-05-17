@@ -1,39 +1,39 @@
-# ------------------------------------------------------ #
-#  Copyright 2009-2016, Acciente LLC                     #
-#                                                        #
-#  Acciente LLC licenses this file to you under the      #
-#  Apache License, Version 2.0 (the "License"); you      #
-#  may not use this file except in compliance with the   #
-#  License. You may obtain a copy of the License at      #
-#                                                        #
-#      http://www.apache.org/licenses/LICENSE-2.0        #
-#                                                        #
-#  Unless required by applicable law or agreed to in     #
-#  writing, software distributed under the License is    #
-#  distributed on an "AS IS" BASIS, WITHOUT WARRANTIES   #
-#  OR CONDITIONS OF ANY KIND, either express or implied. #
-#  See the License for the specific language governing   #
-#  permissions and limitations under the License.        #
-# ------------------------------------------------------ #
+-- -----------------------------------------------------
+-- Copyright 2009-2016, Acciente LLC
+--
+-- Acciente LLC licenses this file to you under the
+-- Apache License, Version 2.0 (the "License"); you
+-- may not use this file except in compliance with the
+-- License. You may obtain a copy of the License at
+--
+--     http://www.apache.org/licenses/LICENSE-2.0
+--
+-- Unless required by applicable law or agreed to in
+-- writing, software distributed under the License is
+-- distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
+-- OR CONDITIONS OF ANY KIND, either express or implied.
+-- See the License for the specific language governing
+-- permissions and limitations under the License.
+-- -----------------------------------------------------
 
-# ---------------------------------------------------------------------- #
-# Script generated with: DeZign for Databases V7.3.4                     #
-# Target DBMS:           MySQL 5                                         #
-# Project file:          oacc-schema-design.dez                          #
-# Project name:          OACC                                            #
-# Author:                Adinath Raveendra Raj                           #
-# Script type:           Database creation script                        #
-# Created on:            2015-11-02 16:25                                #
-# ---------------------------------------------------------------------- #
+-- ---------------------------------------------------------------------
+-- Script generated with: DeZign for Databases V7.3.4
+-- Target DBMS:           MySQL 5
+-- Project file:          oacc-schema-design.dez
+-- Project name:          OACC
+-- Author:                Adinath Raveendra Raj
+-- Script type:           Database creation script
+-- Created on:            2015-11-02 16:25
+-- ---------------------------------------------------------------------
 
 
-# ---------------------------------------------------------------------- #
-# Tables                                                                 #
-# ---------------------------------------------------------------------- #
+-- ---------------------------------------------------------------------
+-- Tables
+-- ---------------------------------------------------------------------
 
-# ---------------------------------------------------------------------- #
-# Add table "OACCDB.OAC_ResourceClass"                                   #
-# ---------------------------------------------------------------------- #
+-- ---------------------------------------------------------------------
+-- Add table "OACCDB.OAC_ResourceClass"
+-- ---------------------------------------------------------------------
 
 CREATE TABLE `OACCDB`.`OAC_ResourceClass` (
     `ResourceClassID` BIGINT NOT NULL AUTO_INCREMENT,
@@ -45,9 +45,9 @@ CREATE TABLE `OACCDB`.`OAC_ResourceClass` (
 
 CREATE INDEX `IX_RC_ResourceClassName` ON `OACCDB`.`OAC_ResourceClass` (`ResourceClassName`);
 
-# ---------------------------------------------------------------------- #
-# Add table "OACCDB.OAC_ResourceClassPermission"                         #
-# ---------------------------------------------------------------------- #
+-- ---------------------------------------------------------------------
+-- Add table "OACCDB.OAC_ResourceClassPermission"
+-- ---------------------------------------------------------------------
 
 CREATE TABLE `OACCDB`.`OAC_ResourceClassPermission` (
     `ResourceClassID` BIGINT NOT NULL,
@@ -60,9 +60,9 @@ CREATE INDEX `IX_RCP_ResourceClassID` ON `OACCDB`.`OAC_ResourceClassPermission` 
 
 CREATE INDEX `IX_RCP_ResClassID_PermName` ON `OACCDB`.`OAC_ResourceClassPermission` (`ResourceClassID`,`PermissionName`);
 
-# ---------------------------------------------------------------------- #
-# Add table "OACCDB.OAC_Domain"                                          #
-# ---------------------------------------------------------------------- #
+-- ---------------------------------------------------------------------
+-- Add table "OACCDB.OAC_Domain"
+-- ---------------------------------------------------------------------
 
 CREATE TABLE `OACCDB`.`OAC_Domain` (
     `DomainID` BIGINT NOT NULL AUTO_INCREMENT,
@@ -75,9 +75,9 @@ CREATE INDEX `IX_D_ParentDomainID` ON `OACCDB`.`OAC_Domain` (`ParentDomainID`);
 
 CREATE INDEX `IX_D_DomainName` ON `OACCDB`.`OAC_Domain` (`DomainName`);
 
-# ---------------------------------------------------------------------- #
-# Add table "OACCDB.OAC_Resource"                                        #
-# ---------------------------------------------------------------------- #
+-- ---------------------------------------------------------------------
+-- Add table "OACCDB.OAC_Resource"
+-- ---------------------------------------------------------------------
 
 CREATE TABLE `OACCDB`.`OAC_Resource` (
     `ResourceID` BIGINT NOT NULL AUTO_INCREMENT,
@@ -90,9 +90,9 @@ CREATE INDEX `IX_R_ResourceClassID` ON `OACCDB`.`OAC_Resource` (`ResourceClassID
 
 CREATE INDEX `IX_R_DomainID` ON `OACCDB`.`OAC_Resource` (`DomainID`);
 
-# ---------------------------------------------------------------------- #
-# Add table "OACCDB.OAC_Grant_ResPerm"                                   #
-# ---------------------------------------------------------------------- #
+-- ---------------------------------------------------------------------
+-- Add table "OACCDB.OAC_Grant_ResPerm"
+-- ---------------------------------------------------------------------
 
 CREATE TABLE `OACCDB`.`OAC_Grant_ResPerm` (
     `AccessorResourceID` BIGINT NOT NULL,
@@ -112,9 +112,9 @@ CREATE INDEX `IX_GrRP_GrantorResourceID` ON `OACCDB`.`OAC_Grant_ResPerm` (`Grant
 
 CREATE INDEX `IX_GrRP_ResourceClassID` ON `OACCDB`.`OAC_Grant_ResPerm` (`ResourceClassID`,`PermissionID`);
 
-# ---------------------------------------------------------------------- #
-# Add table "OACCDB.OAC_Grant_ResCrPerm_PostCr"                          #
-# ---------------------------------------------------------------------- #
+-- ---------------------------------------------------------------------
+-- Add table "OACCDB.OAC_Grant_ResCrPerm_PostCr"
+-- ---------------------------------------------------------------------
 
 CREATE TABLE `OACCDB`.`OAC_Grant_ResCrPerm_PostCr` (
     `AccessorResourceID` BIGINT NOT NULL,
@@ -135,9 +135,9 @@ CREATE INDEX `IX_GrRCrPPoCr_GrantorResID` ON `OACCDB`.`OAC_Grant_ResCrPerm_PostC
 
 CREATE INDEX `IX_GrRCrPPoCr_AccessedDomainID` ON `OACCDB`.`OAC_Grant_ResCrPerm_PostCr` (`AccessedDomainID`);
 
-# ---------------------------------------------------------------------- #
-# Add table "OACCDB.OAC_Grant_DomPerm_Sys"                               #
-# ---------------------------------------------------------------------- #
+-- ---------------------------------------------------------------------
+-- Add table "OACCDB.OAC_Grant_DomPerm_Sys"
+-- ---------------------------------------------------------------------
 
 CREATE TABLE `OACCDB`.`OAC_Grant_DomPerm_Sys` (
     `AccessorResourceID` BIGINT NOT NULL,
@@ -154,9 +154,9 @@ CREATE INDEX `IX_GrDPSys_GrantorResourceID` ON `OACCDB`.`OAC_Grant_DomPerm_Sys` 
 
 CREATE INDEX `IX_GrDPSys_AccessedDomainID` ON `OACCDB`.`OAC_Grant_DomPerm_Sys` (`AccessedDomainID`);
 
-# ---------------------------------------------------------------------- #
-# Add table "OACCDB.OAC_Grant_DomCrPerm_PostCr_Sys"                      #
-# ---------------------------------------------------------------------- #
+-- ---------------------------------------------------------------------
+-- Add table "OACCDB.OAC_Grant_DomCrPerm_PostCr_Sys"
+-- ---------------------------------------------------------------------
 
 CREATE TABLE `OACCDB`.`OAC_Grant_DomCrPerm_PostCr_Sys` (
     `AccessorResourceID` BIGINT NOT NULL,
@@ -171,9 +171,9 @@ CREATE INDEX `IX_GrDCrPPoCrSys_AccessorResID` ON `OACCDB`.`OAC_Grant_DomCrPerm_P
 
 CREATE INDEX `IX_GrDCrPPoCrSys_GrantorResID` ON `OACCDB`.`OAC_Grant_DomCrPerm_PostCr_Sys` (`GrantorResourceID`);
 
-# ---------------------------------------------------------------------- #
-# Add table "OACCDB.OAC_Grant_ResPerm_Sys"                               #
-# ---------------------------------------------------------------------- #
+-- ---------------------------------------------------------------------
+-- Add table "OACCDB.OAC_Grant_ResPerm_Sys"
+-- ---------------------------------------------------------------------
 
 CREATE TABLE `OACCDB`.`OAC_Grant_ResPerm_Sys` (
     `AccessorResourceID` BIGINT NOT NULL,
@@ -193,9 +193,9 @@ CREATE INDEX `IX_GrRPSys_GrantorResourceID` ON `OACCDB`.`OAC_Grant_ResPerm_Sys` 
 
 CREATE INDEX `IX_GrRPSys_ResourceClassID` ON `OACCDB`.`OAC_Grant_ResPerm_Sys` (`ResourceClassID`);
 
-# ---------------------------------------------------------------------- #
-# Add table "OACCDB.OAC_Grant_ResCrPerm_PostCr_Sys"                      #
-# ---------------------------------------------------------------------- #
+-- ---------------------------------------------------------------------
+-- Add table "OACCDB.OAC_Grant_ResCrPerm_PostCr_Sys"
+-- ---------------------------------------------------------------------
 
 CREATE TABLE `OACCDB`.`OAC_Grant_ResCrPerm_PostCr_Sys` (
     `AccessorResourceID` BIGINT NOT NULL,
@@ -216,9 +216,9 @@ CREATE INDEX `IX_GrRCrPPoCrSys_ResClassID` ON `OACCDB`.`OAC_Grant_ResCrPerm_Post
 
 CREATE INDEX `IX_GrRCrPPoCrSys_AccessedDomID` ON `OACCDB`.`OAC_Grant_ResCrPerm_PostCr_Sys` (`AccessedDomainID`);
 
-# ---------------------------------------------------------------------- #
-# Add table "OACCDB.OAC_Grant_Global_ResPerm"                            #
-# ---------------------------------------------------------------------- #
+-- ---------------------------------------------------------------------
+-- Add table "OACCDB.OAC_Grant_Global_ResPerm"
+-- ---------------------------------------------------------------------
 
 CREATE TABLE `OACCDB`.`OAC_Grant_Global_ResPerm` (
     `AccessorResourceID` BIGINT NOT NULL,
@@ -238,9 +238,9 @@ CREATE INDEX `IX_GrGbRP_GrantorResourceID` ON `OACCDB`.`OAC_Grant_Global_ResPerm
 
 CREATE INDEX `IX_GrGbRP_AccessedDomainID` ON `OACCDB`.`OAC_Grant_Global_ResPerm` (`AccessedDomainID`);
 
-# ---------------------------------------------------------------------- #
-# Add table "OACCDB.OAC_Grant_Global_ResPerm_Sys"                        #
-# ---------------------------------------------------------------------- #
+-- ---------------------------------------------------------------------
+-- Add table "OACCDB.OAC_Grant_Global_ResPerm_Sys"
+-- ---------------------------------------------------------------------
 
 CREATE TABLE `OACCDB`.`OAC_Grant_Global_ResPerm_Sys` (
     `AccessorResourceID` BIGINT NOT NULL,
@@ -260,9 +260,9 @@ CREATE INDEX `IX_GrGbRPSys_AccessedDomainID` ON `OACCDB`.`OAC_Grant_Global_ResPe
 
 CREATE INDEX `IX_GrGbRPSys_ResClassID` ON `OACCDB`.`OAC_Grant_Global_ResPerm_Sys` (`ResourceClassID`);
 
-# ---------------------------------------------------------------------- #
-# Add table "OACCDB.OAC_Grant_ResCrPerm_Sys"                             #
-# ---------------------------------------------------------------------- #
+-- ---------------------------------------------------------------------
+-- Add table "OACCDB.OAC_Grant_ResCrPerm_Sys"
+-- ---------------------------------------------------------------------
 
 CREATE TABLE `OACCDB`.`OAC_Grant_ResCrPerm_Sys` (
     `AccessorResourceID` BIGINT NOT NULL,
@@ -282,9 +282,9 @@ CREATE INDEX `IX_GrRCrPSys_ResClassID` ON `OACCDB`.`OAC_Grant_ResCrPerm_Sys` (`R
 
 CREATE INDEX `IX_GrRCrPSys_AccessedDomID` ON `OACCDB`.`OAC_Grant_ResCrPerm_Sys` (`AccessedDomainID`);
 
-# ---------------------------------------------------------------------- #
-# Add table "OACCDB.OAC_Grant_DomCrPerm_Sys"                             #
-# ---------------------------------------------------------------------- #
+-- ---------------------------------------------------------------------
+-- Add table "OACCDB.OAC_Grant_DomCrPerm_Sys"
+-- ---------------------------------------------------------------------
 
 CREATE TABLE `OACCDB`.`OAC_Grant_DomCrPerm_Sys` (
     `AccessorResourceID` BIGINT NOT NULL,
@@ -298,9 +298,9 @@ CREATE INDEX `IX_GrDCrPSys_AccessorResID` ON `OACCDB`.`OAC_Grant_DomCrPerm_Sys` 
 
 CREATE INDEX `IX_GrDCrPSys_GrantorResID` ON `OACCDB`.`OAC_Grant_DomCrPerm_Sys` (`GrantorResourceID`);
 
-# ---------------------------------------------------------------------- #
-# Add table "OACCDB.OAC_ResourcePassword"                                #
-# ---------------------------------------------------------------------- #
+-- ---------------------------------------------------------------------
+-- Add table "OACCDB.OAC_ResourcePassword"
+-- ---------------------------------------------------------------------
 
 CREATE TABLE `OACCDB`.`OAC_ResourcePassword` (
     `ResourceID` BIGINT NOT NULL,
@@ -308,139 +308,139 @@ CREATE TABLE `OACCDB`.`OAC_ResourcePassword` (
     CONSTRAINT `PK_RP` PRIMARY KEY (`ResourceID`)
 );
 
-# ---------------------------------------------------------------------- #
-# Add table "OACCDB.OAC_ResourceExternalID"                              #
-# ---------------------------------------------------------------------- #
+-- ---------------------------------------------------------------------
+-- Add table "OACCDB.OAC_ResourceExternalId"
+-- ---------------------------------------------------------------------
 
-CREATE TABLE `OACCDB`.`OAC_ResourceExternalID` (
+CREATE TABLE `OACCDB`.`OAC_ResourceExternalId` (
     `ResourceID` BIGINT NOT NULL,
     `ExternalID` VARCHAR(255) NOT NULL,
     CONSTRAINT `PK_RE` PRIMARY KEY (`ResourceID`),
     CONSTRAINT `UX_ExternalID` UNIQUE (`ExternalID`)
 );
 
-CREATE INDEX `IX_RE_ExternalID` ON `OACCDB`.`OAC_ResourceExternalID` (`ExternalID`);
+CREATE INDEX `IX_RE_ExternalID` ON `OACCDB`.`OAC_ResourceExternalId` (`ExternalID`);
 
-# ---------------------------------------------------------------------- #
-# Foreign key constraints                                                #
-# ---------------------------------------------------------------------- #
+-- ---------------------------------------------------------------------
+-- Foreign key constraints
+-- ---------------------------------------------------------------------
 
-ALTER TABLE `OACCDB`.`OAC_Domain` ADD CONSTRAINT `D_D_ParentDomainID` 
+ALTER TABLE `OACCDB`.`OAC_Domain` ADD CONSTRAINT `D_D_ParentDomainID`
     FOREIGN KEY (`ParentDomainID`) REFERENCES `OACCDB`.`OAC_Domain` (`DomainID`);
 
-ALTER TABLE `OACCDB`.`OAC_ResourceClassPermission` ADD CONSTRAINT `RCP_RC_ResourceClassID` 
+ALTER TABLE `OACCDB`.`OAC_ResourceClassPermission` ADD CONSTRAINT `RCP_RC_ResourceClassID`
     FOREIGN KEY (`ResourceClassID`) REFERENCES `OACCDB`.`OAC_ResourceClass` (`ResourceClassID`);
 
-ALTER TABLE `OACCDB`.`OAC_Resource` ADD CONSTRAINT `R_RC_ResourceClassID` 
+ALTER TABLE `OACCDB`.`OAC_Resource` ADD CONSTRAINT `R_RC_ResourceClassID`
     FOREIGN KEY (`ResourceClassID`) REFERENCES `OACCDB`.`OAC_ResourceClass` (`ResourceClassID`);
 
-ALTER TABLE `OACCDB`.`OAC_Resource` ADD CONSTRAINT `R_D_DomainID` 
+ALTER TABLE `OACCDB`.`OAC_Resource` ADD CONSTRAINT `R_D_DomainID`
     FOREIGN KEY (`DomainID`) REFERENCES `OACCDB`.`OAC_Domain` (`DomainID`);
 
-ALTER TABLE `OACCDB`.`OAC_Grant_ResPerm` ADD CONSTRAINT `GrRP_R_AccessorResourceID` 
+ALTER TABLE `OACCDB`.`OAC_Grant_ResPerm` ADD CONSTRAINT `GrRP_R_AccessorResourceID`
     FOREIGN KEY (`AccessorResourceID`) REFERENCES `OACCDB`.`OAC_Resource` (`ResourceID`);
 
-ALTER TABLE `OACCDB`.`OAC_Grant_ResPerm` ADD CONSTRAINT `GrRP_R_AccessedResourceID` 
+ALTER TABLE `OACCDB`.`OAC_Grant_ResPerm` ADD CONSTRAINT `GrRP_R_AccessedResourceID`
     FOREIGN KEY (`AccessedResourceID`) REFERENCES `OACCDB`.`OAC_Resource` (`ResourceID`);
 
-ALTER TABLE `OACCDB`.`OAC_Grant_ResPerm` ADD CONSTRAINT `GrRP_R_GrantorResourceID` 
+ALTER TABLE `OACCDB`.`OAC_Grant_ResPerm` ADD CONSTRAINT `GrRP_R_GrantorResourceID`
     FOREIGN KEY (`GrantorResourceID`) REFERENCES `OACCDB`.`OAC_Resource` (`ResourceID`);
 
-ALTER TABLE `OACCDB`.`OAC_Grant_ResPerm` ADD CONSTRAINT `GrRP_RCP_ResourceClassID` 
+ALTER TABLE `OACCDB`.`OAC_Grant_ResPerm` ADD CONSTRAINT `GrRP_RCP_ResourceClassID`
     FOREIGN KEY (`ResourceClassID`, `PermissionID`) REFERENCES `OACCDB`.`OAC_ResourceClassPermission` (`ResourceClassID`,`PermissionID`);
 
-ALTER TABLE `OACCDB`.`OAC_Grant_ResCrPerm_PostCr` ADD CONSTRAINT `GrRCrPPoCr_RCP_ResClassID` 
+ALTER TABLE `OACCDB`.`OAC_Grant_ResCrPerm_PostCr` ADD CONSTRAINT `GrRCrPPoCr_RCP_ResClassID`
     FOREIGN KEY (`ResourceClassID`, `PostCreatePermissionID`) REFERENCES `OACCDB`.`OAC_ResourceClassPermission` (`ResourceClassID`,`PermissionID`);
 
-ALTER TABLE `OACCDB`.`OAC_Grant_ResCrPerm_PostCr` ADD CONSTRAINT `GrRCrPPoCr_R_AccessorResID` 
+ALTER TABLE `OACCDB`.`OAC_Grant_ResCrPerm_PostCr` ADD CONSTRAINT `GrRCrPPoCr_R_AccessorResID`
     FOREIGN KEY (`AccessorResourceID`) REFERENCES `OACCDB`.`OAC_Resource` (`ResourceID`);
 
-ALTER TABLE `OACCDB`.`OAC_Grant_ResCrPerm_PostCr` ADD CONSTRAINT `GrRCrPPoCr_R_GrantorResID` 
+ALTER TABLE `OACCDB`.`OAC_Grant_ResCrPerm_PostCr` ADD CONSTRAINT `GrRCrPPoCr_R_GrantorResID`
     FOREIGN KEY (`GrantorResourceID`) REFERENCES `OACCDB`.`OAC_Resource` (`ResourceID`);
 
-ALTER TABLE `OACCDB`.`OAC_Grant_ResCrPerm_PostCr` ADD CONSTRAINT `GrRCrPPoCr_D_AccessedDomainID` 
+ALTER TABLE `OACCDB`.`OAC_Grant_ResCrPerm_PostCr` ADD CONSTRAINT `GrRCrPPoCr_D_AccessedDomainID`
     FOREIGN KEY (`AccessedDomainID`) REFERENCES `OACCDB`.`OAC_Domain` (`DomainID`);
 
-ALTER TABLE `OACCDB`.`OAC_Grant_DomPerm_Sys` ADD CONSTRAINT `GrDPSys_R_AccessorResourceID` 
+ALTER TABLE `OACCDB`.`OAC_Grant_DomPerm_Sys` ADD CONSTRAINT `GrDPSys_R_AccessorResourceID`
     FOREIGN KEY (`AccessorResourceID`) REFERENCES `OACCDB`.`OAC_Resource` (`ResourceID`);
 
-ALTER TABLE `OACCDB`.`OAC_Grant_DomPerm_Sys` ADD CONSTRAINT `GrDPSys_R_GrantorResourceID` 
+ALTER TABLE `OACCDB`.`OAC_Grant_DomPerm_Sys` ADD CONSTRAINT `GrDPSys_R_GrantorResourceID`
     FOREIGN KEY (`GrantorResourceID`) REFERENCES `OACCDB`.`OAC_Resource` (`ResourceID`);
 
-ALTER TABLE `OACCDB`.`OAC_Grant_DomPerm_Sys` ADD CONSTRAINT `GrDPSys_D_AccessedDomID` 
+ALTER TABLE `OACCDB`.`OAC_Grant_DomPerm_Sys` ADD CONSTRAINT `GrDPSys_D_AccessedDomID`
     FOREIGN KEY (`AccessedDomainID`) REFERENCES `OACCDB`.`OAC_Domain` (`DomainID`);
 
-ALTER TABLE `OACCDB`.`OAC_Grant_DomCrPerm_PostCr_Sys` ADD CONSTRAINT `GrDCrPPoCrSys_R_AccessorResID` 
+ALTER TABLE `OACCDB`.`OAC_Grant_DomCrPerm_PostCr_Sys` ADD CONSTRAINT `GrDCrPPoCrSys_R_AccessorResID`
     FOREIGN KEY (`AccessorResourceID`) REFERENCES `OACCDB`.`OAC_Resource` (`ResourceID`);
 
-ALTER TABLE `OACCDB`.`OAC_Grant_DomCrPerm_PostCr_Sys` ADD CONSTRAINT `GrDCrPPoCrSys_R_GrantorResID` 
+ALTER TABLE `OACCDB`.`OAC_Grant_DomCrPerm_PostCr_Sys` ADD CONSTRAINT `GrDCrPPoCrSys_R_GrantorResID`
     FOREIGN KEY (`GrantorResourceID`) REFERENCES `OACCDB`.`OAC_Resource` (`ResourceID`);
 
-ALTER TABLE `OACCDB`.`OAC_Grant_ResPerm_Sys` ADD CONSTRAINT `GrRPSys_R_AccessorResourceID` 
+ALTER TABLE `OACCDB`.`OAC_Grant_ResPerm_Sys` ADD CONSTRAINT `GrRPSys_R_AccessorResourceID`
     FOREIGN KEY (`AccessorResourceID`) REFERENCES `OACCDB`.`OAC_Resource` (`ResourceID`);
 
-ALTER TABLE `OACCDB`.`OAC_Grant_ResPerm_Sys` ADD CONSTRAINT `GrRPSys_R_AccessedResourceID` 
+ALTER TABLE `OACCDB`.`OAC_Grant_ResPerm_Sys` ADD CONSTRAINT `GrRPSys_R_AccessedResourceID`
     FOREIGN KEY (`AccessedResourceID`) REFERENCES `OACCDB`.`OAC_Resource` (`ResourceID`);
 
-ALTER TABLE `OACCDB`.`OAC_Grant_ResPerm_Sys` ADD CONSTRAINT `GrRPSys_R_GrantorResourceID` 
+ALTER TABLE `OACCDB`.`OAC_Grant_ResPerm_Sys` ADD CONSTRAINT `GrRPSys_R_GrantorResourceID`
     FOREIGN KEY (`GrantorResourceID`) REFERENCES `OACCDB`.`OAC_Resource` (`ResourceID`);
 
-ALTER TABLE `OACCDB`.`OAC_Grant_ResPerm_Sys` ADD CONSTRAINT `GrRPSys_RC_ResourceClassID` 
+ALTER TABLE `OACCDB`.`OAC_Grant_ResPerm_Sys` ADD CONSTRAINT `GrRPSys_RC_ResourceClassID`
     FOREIGN KEY (`ResourceClassID`) REFERENCES `OACCDB`.`OAC_ResourceClass` (`ResourceClassID`);
 
-ALTER TABLE `OACCDB`.`OAC_Grant_ResCrPerm_PostCr_Sys` ADD CONSTRAINT `GrRCrPPoCrSys_R_AccessorResID` 
+ALTER TABLE `OACCDB`.`OAC_Grant_ResCrPerm_PostCr_Sys` ADD CONSTRAINT `GrRCrPPoCrSys_R_AccessorResID`
     FOREIGN KEY (`AccessorResourceID`) REFERENCES `OACCDB`.`OAC_Resource` (`ResourceID`);
 
-ALTER TABLE `OACCDB`.`OAC_Grant_ResCrPerm_PostCr_Sys` ADD CONSTRAINT `GrRCrPPoCrSys_R_GrantorResID` 
+ALTER TABLE `OACCDB`.`OAC_Grant_ResCrPerm_PostCr_Sys` ADD CONSTRAINT `GrRCrPPoCrSys_R_GrantorResID`
     FOREIGN KEY (`GrantorResourceID`) REFERENCES `OACCDB`.`OAC_Resource` (`ResourceID`);
 
-ALTER TABLE `OACCDB`.`OAC_Grant_ResCrPerm_PostCr_Sys` ADD CONSTRAINT `GrRCrPPoCrSys_RC_ResClassID` 
+ALTER TABLE `OACCDB`.`OAC_Grant_ResCrPerm_PostCr_Sys` ADD CONSTRAINT `GrRCrPPoCrSys_RC_ResClassID`
     FOREIGN KEY (`ResourceClassID`) REFERENCES `OACCDB`.`OAC_ResourceClass` (`ResourceClassID`);
 
-ALTER TABLE `OACCDB`.`OAC_Grant_ResCrPerm_PostCr_Sys` ADD CONSTRAINT `GrRCrPPoCrSys_D_AccessedDomID` 
+ALTER TABLE `OACCDB`.`OAC_Grant_ResCrPerm_PostCr_Sys` ADD CONSTRAINT `GrRCrPPoCrSys_D_AccessedDomID`
     FOREIGN KEY (`AccessedDomainID`) REFERENCES `OACCDB`.`OAC_Domain` (`DomainID`);
 
-ALTER TABLE `OACCDB`.`OAC_Grant_Global_ResPerm` ADD CONSTRAINT `GrGbRP_RCP_ResClassID` 
+ALTER TABLE `OACCDB`.`OAC_Grant_Global_ResPerm` ADD CONSTRAINT `GrGbRP_RCP_ResClassID`
     FOREIGN KEY (`ResourceClassID`, `PermissionID`) REFERENCES `OACCDB`.`OAC_ResourceClassPermission` (`ResourceClassID`,`PermissionID`);
 
-ALTER TABLE `OACCDB`.`OAC_Grant_Global_ResPerm` ADD CONSTRAINT `GrGbRP_R_AccessorResourceID` 
+ALTER TABLE `OACCDB`.`OAC_Grant_Global_ResPerm` ADD CONSTRAINT `GrGbRP_R_AccessorResourceID`
     FOREIGN KEY (`AccessorResourceID`) REFERENCES `OACCDB`.`OAC_Resource` (`ResourceID`);
 
-ALTER TABLE `OACCDB`.`OAC_Grant_Global_ResPerm` ADD CONSTRAINT `GrGbRP_R_GrantorResourceID` 
+ALTER TABLE `OACCDB`.`OAC_Grant_Global_ResPerm` ADD CONSTRAINT `GrGbRP_R_GrantorResourceID`
     FOREIGN KEY (`GrantorResourceID`) REFERENCES `OACCDB`.`OAC_Resource` (`ResourceID`);
 
-ALTER TABLE `OACCDB`.`OAC_Grant_Global_ResPerm` ADD CONSTRAINT `GrGbRP_D_AccessedDomainID` 
+ALTER TABLE `OACCDB`.`OAC_Grant_Global_ResPerm` ADD CONSTRAINT `GrGbRP_D_AccessedDomainID`
     FOREIGN KEY (`AccessedDomainID`) REFERENCES `OACCDB`.`OAC_Domain` (`DomainID`);
 
-ALTER TABLE `OACCDB`.`OAC_Grant_Global_ResPerm_Sys` ADD CONSTRAINT `GrGbRPSys_R_AccessorResourceID` 
+ALTER TABLE `OACCDB`.`OAC_Grant_Global_ResPerm_Sys` ADD CONSTRAINT `GrGbRPSys_R_AccessorResourceID`
     FOREIGN KEY (`AccessorResourceID`) REFERENCES `OACCDB`.`OAC_Resource` (`ResourceID`);
 
-ALTER TABLE `OACCDB`.`OAC_Grant_Global_ResPerm_Sys` ADD CONSTRAINT `GrGbRPSys_R_GrantorResourceID` 
+ALTER TABLE `OACCDB`.`OAC_Grant_Global_ResPerm_Sys` ADD CONSTRAINT `GrGbRPSys_R_GrantorResourceID`
     FOREIGN KEY (`GrantorResourceID`) REFERENCES `OACCDB`.`OAC_Resource` (`ResourceID`);
 
-ALTER TABLE `OACCDB`.`OAC_Grant_Global_ResPerm_Sys` ADD CONSTRAINT `GrGbRPSys_D_AccessedDomID` 
+ALTER TABLE `OACCDB`.`OAC_Grant_Global_ResPerm_Sys` ADD CONSTRAINT `GrGbRPSys_D_AccessedDomID`
     FOREIGN KEY (`AccessedDomainID`) REFERENCES `OACCDB`.`OAC_Domain` (`DomainID`);
 
-ALTER TABLE `OACCDB`.`OAC_Grant_Global_ResPerm_Sys` ADD CONSTRAINT `GrGbRPSys_RC_ResClassID` 
+ALTER TABLE `OACCDB`.`OAC_Grant_Global_ResPerm_Sys` ADD CONSTRAINT `GrGbRPSys_RC_ResClassID`
     FOREIGN KEY (`ResourceClassID`) REFERENCES `OACCDB`.`OAC_ResourceClass` (`ResourceClassID`);
 
-ALTER TABLE `OACCDB`.`OAC_Grant_ResCrPerm_Sys` ADD CONSTRAINT `GrRCrPSys_R_AccessorResourceID` 
+ALTER TABLE `OACCDB`.`OAC_Grant_ResCrPerm_Sys` ADD CONSTRAINT `GrRCrPSys_R_AccessorResourceID`
     FOREIGN KEY (`AccessorResourceID`) REFERENCES `OACCDB`.`OAC_Resource` (`ResourceID`);
 
-ALTER TABLE `OACCDB`.`OAC_Grant_ResCrPerm_Sys` ADD CONSTRAINT `GrRCrPSys_D_AccessedDomainID` 
+ALTER TABLE `OACCDB`.`OAC_Grant_ResCrPerm_Sys` ADD CONSTRAINT `GrRCrPSys_D_AccessedDomainID`
     FOREIGN KEY (`AccessedDomainID`) REFERENCES `OACCDB`.`OAC_Domain` (`DomainID`);
 
-ALTER TABLE `OACCDB`.`OAC_Grant_ResCrPerm_Sys` ADD CONSTRAINT `GrRCrPSys_R_GrantorResourceID` 
+ALTER TABLE `OACCDB`.`OAC_Grant_ResCrPerm_Sys` ADD CONSTRAINT `GrRCrPSys_R_GrantorResourceID`
     FOREIGN KEY (`GrantorResourceID`) REFERENCES `OACCDB`.`OAC_Resource` (`ResourceID`);
 
-ALTER TABLE `OACCDB`.`OAC_Grant_DomCrPerm_Sys` ADD CONSTRAINT `GrDCrPSys_R_AccessorResourceID` 
+ALTER TABLE `OACCDB`.`OAC_Grant_DomCrPerm_Sys` ADD CONSTRAINT `GrDCrPSys_R_AccessorResourceID`
     FOREIGN KEY (`AccessorResourceID`) REFERENCES `OACCDB`.`OAC_Resource` (`ResourceID`);
 
-ALTER TABLE `OACCDB`.`OAC_Grant_DomCrPerm_Sys` ADD CONSTRAINT `GrDCrPSys_R_GrantorResourceID` 
+ALTER TABLE `OACCDB`.`OAC_Grant_DomCrPerm_Sys` ADD CONSTRAINT `GrDCrPSys_R_GrantorResourceID`
     FOREIGN KEY (`GrantorResourceID`) REFERENCES `OACCDB`.`OAC_Resource` (`ResourceID`);
 
-ALTER TABLE `OACCDB`.`OAC_ResourcePassword` ADD CONSTRAINT `RP_R_ResourceID` 
+ALTER TABLE `OACCDB`.`OAC_ResourcePassword` ADD CONSTRAINT `RP_R_ResourceID`
     FOREIGN KEY (`ResourceID`) REFERENCES `OACCDB`.`OAC_Resource` (`ResourceID`);
 
-ALTER TABLE `OACCDB`.`OAC_ResourceExternalID` ADD CONSTRAINT `RE_R_ResourceID` 
+ALTER TABLE `OACCDB`.`OAC_ResourceExternalId` ADD CONSTRAINT `RE_R_ResourceID`
     FOREIGN KEY (`ResourceID`) REFERENCES `OACCDB`.`OAC_Resource` (`ResourceID`);
