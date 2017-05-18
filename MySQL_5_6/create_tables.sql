@@ -309,17 +309,17 @@ CREATE TABLE `OACCDB`.`OAC_ResourcePassword` (
 );
 
 -- ---------------------------------------------------------------------
--- Add table "OACCDB.OAC_ResourceExternalId"
+-- Add table "OACCDB.OAC_ResourceExternalID"
 -- ---------------------------------------------------------------------
 
-CREATE TABLE `OACCDB`.`OAC_ResourceExternalId` (
+CREATE TABLE `OACCDB`.`OAC_ResourceExternalID` (
     `ResourceID` BIGINT NOT NULL,
     `ExternalID` VARCHAR(255) NOT NULL,
     CONSTRAINT `PK_RE` PRIMARY KEY (`ResourceID`),
     CONSTRAINT `UX_ExternalID` UNIQUE (`ExternalID`)
 );
 
-CREATE INDEX `IX_RE_ExternalID` ON `OACCDB`.`OAC_ResourceExternalId` (`ExternalID`);
+CREATE INDEX `IX_RE_ExternalID` ON `OACCDB`.`OAC_ResourceExternalID` (`ExternalID`);
 
 -- ---------------------------------------------------------------------
 -- Foreign key constraints
@@ -442,5 +442,5 @@ ALTER TABLE `OACCDB`.`OAC_Grant_DomCrPerm_Sys` ADD CONSTRAINT `GrDCrPSys_R_Grant
 ALTER TABLE `OACCDB`.`OAC_ResourcePassword` ADD CONSTRAINT `RP_R_ResourceID`
     FOREIGN KEY (`ResourceID`) REFERENCES `OACCDB`.`OAC_Resource` (`ResourceID`);
 
-ALTER TABLE `OACCDB`.`OAC_ResourceExternalId` ADD CONSTRAINT `RE_R_ResourceID`
+ALTER TABLE `OACCDB`.`OAC_ResourceExternalID` ADD CONSTRAINT `RE_R_ResourceID`
     FOREIGN KEY (`ResourceID`) REFERENCES `OACCDB`.`OAC_Resource` (`ResourceID`);
