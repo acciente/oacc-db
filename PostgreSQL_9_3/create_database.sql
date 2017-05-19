@@ -1,5 +1,5 @@
---------------------------------------------------------
--- Copyright 2009-2016, Acciente LLC
+-- -----------------------------------------------------
+-- Copyright 2009-2017, Acciente LLC
 --
 -- Acciente LLC licenses this file to you under the
 -- Apache License, Version 2.0 (the "License"); you
@@ -14,7 +14,7 @@
 -- OR CONDITIONS OF ANY KIND, either express or implied.
 -- See the License for the specific language governing
 -- permissions and limitations under the License.
---------------------------------------------------------
+-- -----------------------------------------------------
 
 -- OPTIONAL:
 -- create dedicated database for oacc
