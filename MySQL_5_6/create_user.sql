@@ -21,19 +21,4 @@ CREATE USER `oaccuser`@`localhost`
   IDENTIFIED BY 'oaccpwd';
 
 -- grant table privileges:
-GRANT SELECT, INSERT, UPDATE, DELETE ON OACCDB.OAC_ResourceClass TO `oaccuser`@`localhost`;
-GRANT SELECT, INSERT, UPDATE, DELETE ON OACCDB.OAC_ResourceClassPermission TO `oaccuser`@`localhost`;
-GRANT SELECT, INSERT, UPDATE, DELETE ON OACCDB.OAC_Domain TO `oaccuser`@`localhost`;
-GRANT SELECT, INSERT, UPDATE, DELETE ON OACCDB.OAC_Resource TO `oaccuser`@`localhost`;
-GRANT SELECT, INSERT, UPDATE, DELETE ON OACCDB.OAC_ResourcePassword TO `oaccuser`@`localhost`;
-GRANT SELECT, INSERT, UPDATE, DELETE ON OACCDB.OAC_ResourceExternalID TO `oaccuser`@`localhost`;
-GRANT SELECT, INSERT, UPDATE, DELETE ON OACCDB.OAC_Grant_DomPerm_Sys TO `oaccuser`@`localhost`;
-GRANT SELECT, INSERT, UPDATE, DELETE ON OACCDB.OAC_Grant_DomCrPerm_Sys TO `oaccuser`@`localhost`;
-GRANT SELECT, INSERT, UPDATE, DELETE ON OACCDB.OAC_Grant_DomCrPerm_PostCr_Sys TO `oaccuser`@`localhost`;
-GRANT SELECT, INSERT, UPDATE, DELETE ON OACCDB.OAC_Grant_ResCrPerm_Sys TO `oaccuser`@`localhost`;
-GRANT SELECT, INSERT, UPDATE, DELETE ON OACCDB.OAC_Grant_ResCrPerm_PostCr TO `oaccuser`@`localhost`;
-GRANT SELECT, INSERT, UPDATE, DELETE ON OACCDB.OAC_Grant_ResCrPerm_PostCr_Sys TO `oaccuser`@`localhost`;
-GRANT SELECT, INSERT, UPDATE, DELETE ON OACCDB.OAC_Grant_ResPerm TO `oaccuser`@`localhost`;
-GRANT SELECT, INSERT, UPDATE, DELETE ON OACCDB.OAC_Grant_ResPerm_Sys TO `oaccuser`@`localhost`;
-GRANT SELECT, INSERT, UPDATE, DELETE ON OACCDB.OAC_Grant_Global_ResPerm TO `oaccuser`@`localhost`;
-GRANT SELECT, INSERT, UPDATE, DELETE ON OACCDB.OAC_Grant_Global_ResPerm_Sys TO `oaccuser`@`localhost`;
+GRANT SELECT, INSERT, UPDATE, DELETE ON OACCDB.* TO `oaccuser`@`localhost`;
